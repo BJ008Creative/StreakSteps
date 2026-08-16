@@ -1,8 +1,8 @@
 import { Dashboard } from "./components/Dashboard";
 
-export function App() {
+function App() {
    return (<Dashboard></Dashboard>);
 }
-
+export default App;
 
 
