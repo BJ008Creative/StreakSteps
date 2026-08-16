@@ -1,6 +1,6 @@
-function StreakCard(){
-    return(<><h1>DSA learning</h1>
-    <input placeholder="Write your goal here"></input>
+function StreakCard(props){
+    return(<><h1>{props.goal}</h1>
+    
     </>);
 }
 export {StreakCard};

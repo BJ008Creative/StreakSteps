@@ -3,7 +3,7 @@ import { StreakCard } from "./components/StreakCard";
 
 function App() {
    return (<><Dashboard></Dashboard>
-   <StreakCard/>
+   <StreakCard goal="DSA "></StreakCard>
    </>);
 }
 export default App;
