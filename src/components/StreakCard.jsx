@@ -1,6 +1,10 @@
-function StreakCard(props){
-    return(<><h1>{props.goal}</h1>
-    
-    </>);
+function StreakCard(props) {
+    return (
+        <>
+            <h1>{props.goal.name}</h1>
+            <p>{props.goal.days} days</p>
+        </>
+    );
 }
-export {StreakCard};
+
+export { StreakCard };
