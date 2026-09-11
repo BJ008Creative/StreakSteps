@@ -5,19 +5,19 @@ function AddProp(props) {
     const [day, setDay] = useState("");
     const [error, setError] = useState("");
     function handleAdd() {
-    if (goalName === "") {
-        setError("Please enter a valid goal name");
-        return;
-    }
+        if (goalName === "") {
+            setError("Please enter a valid goal name");
+            return;
+        }
 
-    if (day === "" || Number(day) <= 0) {
-        setError("Please enter a valid number of days");
-        return;
-    }
+        if (day === "" || Number(day) <= 0) {
+            setError("Please enter a valid number of days");
+            return;
+        }
 
-    setError("");
-    props.addGoal(goalName, Number(day));
-}
+        setError("");
+        props.addGoal(goalName, Number(day));
+    }
 
     return (
         <>

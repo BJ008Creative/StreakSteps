@@ -13,12 +13,20 @@ function App() {
     { name: "Exercise", days: 15 }
 ]);
     function addGoal(goalName,day) {
-    
-    setGoals([
-        ...goals,
-        { name: goalName , days: day }
-    ]);
+            
+            setGoals([
+                ...goals,
+                { name: goalName , days: day }
+            ]);
+        }
+    function deleteGoal(deleteIndex) {
+    setGoals(
+        goals.filter((goal, index) => {
+            return index !== deleteIndex;
+        })
+    );
 }
+    
     return (
         <>
             <Dashboard />
@@ -28,6 +36,8 @@ function App() {
                     <StreakCard
                         key={index}
                         goal={goal}
+                        onDelete={deleteGoal}
+                        index={index}
                     />
                 );
             })}
