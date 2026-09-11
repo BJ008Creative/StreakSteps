@@ -1,0 +1,90 @@
+.streak-card {
+    position: relative;
+    min-height: 245px;
+    padding: 24px 20px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 24px;
+    background: rgba(255, 248, 235, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+
+    box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    color: #251a38;
+    text-align: center;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.streak-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 20px 38px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.streak-icon {
+    width: 78px;
+    height: 78px;
+    margin-bottom: 12px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 22px;
+    background: rgba(72, 48, 86, 0.12);
+
+    font-size: 42px;
+}
+
+.streak-card h2 {
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.streak-card p {
+    margin: 8px 0 15px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    opacity: 0.72;
+}
+
+.streak-card button {
+    border: none;
+    padding: 7px 13px;
+    border-radius: 8px;
+
+    background: rgba(57, 35, 68, 0.1);
+    color: #392344;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.streak-card:hover button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .streak-card button {
+        opacity: 1;
+        transform: none;
+    }
+}

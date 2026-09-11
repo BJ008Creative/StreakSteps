@@ -2,6 +2,7 @@ import { AddProp } from "./components/AddProp";
 import { Dashboard } from "./components/Dashboard";
 import { StreakCard } from "./components/StreakCard";
 import { useState } from "react";
+import "App.css";
 
 
 
@@ -27,22 +28,23 @@ function App() {
     );
 }
     
-    return (
-        <>
-            <Dashboard />
-            <AddProp addGoal={addGoal}></AddProp>
-            {goals.map((goal, index) => {
-                return (
-                    <StreakCard
-                        key={index}
-                        goal={goal}
-                        onDelete={deleteGoal}
-                        index={index}
-                    />
-                );
-            })}
-        </>
-    );
+    <div className="app">
+    <Dashboard />
+    <AddProp addGoal={addGoal} />
+
+    <div className="goals-grid">
+        {goals.map((goal, index) => {
+            return (
+                <StreakCard
+                    key={index}
+                    goal={goal}
+                    onDelete={deleteGoal}
+                    index={index}
+                />
+            );
+        })}
+    </div>
+</div>
 }
 
 export default App;
