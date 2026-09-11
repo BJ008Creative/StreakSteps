@@ -12,10 +12,10 @@ function App() {
     { name: "Reading", days: 20 },
     { name: "Exercise", days: 15 }
 ]);
-    function addGoal() {
+    function addGoal(goalName) {
     setGoals([
         ...goals,
-        { name: "New Goal", days: 0 }
+        { name: goalName , days: 0 }
     ]);
 }
     return (

@@ -1,8 +1,11 @@
 import { useState } from "react";
 
 function AddProp(props) {
-
     const [goalName, setGoalName] = useState("");
+
+    function handleAdd() {
+        props.addGoal(goalName);
+    }
 
     return (
         <>
@@ -12,7 +15,7 @@ function AddProp(props) {
                 placeholder="Enter goal name"
             />
 
-            <button onClick={props.addGoal}>
+            <button onClick={handleAdd}>
                 Add Streak
             </button>
         </>
