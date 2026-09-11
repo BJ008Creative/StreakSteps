@@ -1,18 +1,17 @@
 .add-streak {
-    width: min(1100px, 100%);
-    margin: 0 auto;
-    padding: 22px 28px;
+    width: 100%;
+    min-height: 109px;
+
+    padding: 24px;
+
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 28px;
 
-    background: rgba(255, 248, 235, 0.91);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-radius: 22px;
-
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    background: rgba(204, 173, 110, 0.91);
+    border-color: grey;
+    border-width: 5px;
+    border-style: solid;
 
     color: #251a38;
 }
@@ -25,11 +24,29 @@
     display: grid;
     place-items: center;
 
+    border: none;
     border-radius: 18px;
+
     background: rgba(71, 43, 86, 0.9);
     color: #fff8ed;
+
     font-size: 40px;
     font-weight: 300;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+.add-streak-icon:hover {
+    transform: scale(1.05);
+    background: #392344;
+}
+
+.add-streak-icon:active {
+    transform: scale(0.96);
 }
 
 .add-streak-content {
@@ -38,10 +55,11 @@
 
 .add-streak-content h2 {
     margin: 0 0 12px;
-    font-family: "Cormorant Garamond", serif;
+
+    font-family: "Henny Penny", system-ui, sans-serif;
     font-size: 34px;
     line-height: 1;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .add-streak-form {
@@ -52,10 +70,12 @@
 
 .add-streak-form input {
     min-width: 180px;
+
     padding: 11px 14px;
 
     border: 1px solid rgba(37, 26, 56, 0.22);
     border-radius: 10px;
+
     outline: none;
 
     background: rgba(255, 255, 255, 0.72);
@@ -64,37 +84,24 @@
 
 .add-streak-form input:focus {
     border-color: #6f4c80;
-    box-shadow: 0 0 0 3px rgba(111, 76, 128, 0.13);
-}
 
-.add-streak-form button {
-    padding: 11px 19px;
-    border: none;
-    border-radius: 10px;
-
-    background: #392344;
-    color: white;
-    font-weight: 700;
-
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.add-streak-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 16px rgba(57, 35, 68, 0.25);
+    box-shadow:
+        0 0 0 3px rgba(111, 76, 128, 0.13);
 }
 
 .error {
     margin: 8px 0 0;
+
     color: #a52d2d;
+    font-family: "Source Code Pro", monospace;
     font-size: 13px;
     font-weight: 600;
 }
 
 @media (max-width: 600px) {
     .add-streak {
-        align-items: flex-start;
         padding: 18px;
+        align-items: flex-start;
     }
 
     .add-streak-icon {
@@ -112,8 +119,7 @@
         flex-direction: column;
     }
 
-    .add-streak-form input,
-    .add-streak-form button {
+    .add-streak-form input {
         width: 100%;
     }
 }

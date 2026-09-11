@@ -1,37 +1,49 @@
 #root {
     min-height: 100vh;
+    width: 100%;
 }
 
 .app {
     min-height: 100vh;
-    padding: 36px 7vw 70px;
-    background: linear-gradient(
-        to bottom,
-        rgba(12, 8, 30, 0.22),
-        rgba(12, 8, 30, 0.58)
-    );
+    width: 100%;
+
+    /* Only vertical spacing */
+    padding-top: 36px;
+    padding-bottom: 70px;
+
+    background: transparent;
 }
 
+/* The streak cards themselves need a constrained area */
 .goals-grid {
-    width: min(1100px, 100%);
-    margin: 35px auto 0;
+    width: min(1070px, calc(100% - 100px));
+    margin: 45px auto 0;
+
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(3, 1fr);
+
+    column-gap: 70px;
+    row-gap: 90px;
 }
 
 @media (max-width: 900px) {
     .goals-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: calc(100% - 60px);
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 40px;
+        row-gap: 60px;
     }
 }
 
 @media (max-width: 600px) {
     .app {
-        padding: 25px 20px 50px;
+        padding-top: 25px;
+        padding-bottom: 50px;
     }
 
     .goals-grid {
+        width: calc(100% - 36px);
         grid-template-columns: 1fr;
+        gap: 45px;
     }
 }

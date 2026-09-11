@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "AddProp.css";
+import "./AddProp.css";
 function AddProp(props) {
     const [goalName, setGoalName] = useState("");
     const [day, setDay] = useState("");
@@ -21,9 +21,14 @@ function AddProp(props) {
 
    return (
     <section className="add-streak">
-        <div className="add-streak-icon">
+
+        <button
+            className="add-streak-icon"
+            onClick={handleAdd}
+            aria-label="Add streak"
+        >
             +
-        </div>
+        </button>
 
         <div className="add-streak-content">
             <h2>Add a new streak</h2>
@@ -41,14 +46,11 @@ function AddProp(props) {
                     onChange={(event) => setDay(event.target.value)}
                     placeholder="Enter number of days"
                 />
-
-                <button onClick={handleAdd}>
-                    Add Streak
-                </button>
             </div>
 
             {error && <p className="error">{error}</p>}
         </div>
+
     </section>
 );
 }

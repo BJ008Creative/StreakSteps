@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+.henny-penny-regular {
+  font-family: "Henny Penny", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
 .dashboard {
     text-align: center;
     margin-bottom: 30px;
@@ -5,8 +12,10 @@
 
 .dashboard h1 {
     margin: 0;
-    font-family: "Cormorant Garamond", serif;
-    font-size: clamp(58px, 8vw, 108px);
+    font-family: "Henny Penny";
+    font-size: 270px;
+    padding:50px;
+    color:orangered;
     line-height: 0.9;
     letter-spacing: 0.08em;
     text-transform: uppercase;
