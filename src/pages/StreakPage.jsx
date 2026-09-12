@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { DateGrid } from "../components/Dategrid";
+import { DateGrid } from "../components/DateGrid";
 import "./StreakPage.css";
 
 function StreakPage() {
