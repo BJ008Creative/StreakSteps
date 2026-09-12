@@ -1,37 +1,429 @@
+/* =================================
+   DIGITAL PARK
+   ================================= */
+
 .date-grid {
-    width: min(900px, 90vw);
-    min-height: 500px;
+    position: relative;
 
-    margin: 60px auto;
+    width: 100%;
+    height: 560px;
 
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
+    margin-top: 50px;
+    padding: 35px 40px;
 
     overflow-x: auto;
+    overflow-y: hidden;
 
-    padding: 40px;
+    border: 5px solid #285c35;
+    border-radius: 28px;
+
+    background-color: #6fa85b;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.10) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.10) 1px,
+            transparent 1px
+        );
+
+    background-size: 32px 32px;
+
+    box-shadow:
+        inset 0 0 35px rgba(24, 73, 35, 0.35),
+        0 12px 30px rgba(35, 77, 40, 0.25);
+
+    scrollbar-width: none;
 }
 
+.date-grid::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =================================
+   WHOLE SNAKE
+   ================================= */
+
+.snake-track {
+    position: relative;
+
+    height: 430px;
+
+    flex-shrink: 0;
+
+    margin: 0;
+}
+
+
+/* =================================
+   SNAKE BODY
+   ================================= */
+
 .date-box {
-    flex: 0 0 65px;
+    position: absolute;
 
-    width: 65px;
-    height: 65px;
+    width: 68px;
+    height: 58px;
 
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    background: rgba(199, 165, 103, 0.9);
+    border: 3px solid rgba(255, 255, 255, 0.85);
 
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 22px;
+
+    color: white;
+
+    font-family: "Source Code Pro", monospace;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.35);
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.22);
+
+    cursor: pointer;
+
+    z-index: 3;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+/* =================================
+   SNAKE COLOURS
+   ================================= */
+
+.date-box:nth-child(6n + 1) {
+    background: #f26b5e;
+}
+
+.date-box:nth-child(6n + 2) {
+    background: #f6a623;
+}
+
+.date-box:nth-child(6n + 3) {
+    background: #f4d35e;
+
+    color: #3a176d;
+
+    text-shadow: none;
+}
+
+.date-box:nth-child(6n + 4) {
+    background: #38bfa7;
+}
+
+.date-box:nth-child(6n + 5) {
+    background: #5278e8;
+}
+
+.date-box:nth-child(6n + 6) {
+    background: #a855f7;
+}
+
+
+/* =================================
+   SNAKE HEAD
+   ================================= */
+
+.date-box:first-child {
+    width: 76px;
+    height: 64px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    background: #f26b5e;
+
+    z-index: 5;
+}
+
+
+/* Eyes */
+
+.date-box:first-child::before {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    left: 17px;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        29px 0 0 white;
+}
+
+
+/* Pupils */
+
+.date-box:first-child::after {
+    content: "";
+
+    position: absolute;
+
+    top: 13px;
+    left: 21px;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #24104d;
+
+    box-shadow:
+        29px 0 0 #24104d;
+}
+
+
+/* =================================
+   COMPLETED DAY
+   ================================= */
+
+.date-box.completed {
+    box-shadow:
+        0 0 0 4px rgba(55, 190, 87, 0.35),
+        0 7px 16px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =================================
+   LOCKED DAYS
+   ================================= */
+
+.date-box.locked {
+    cursor: not-allowed;
+
+    opacity: 0.55;
+}
+
+
+/* =================================
+   HOVER
+   ================================= */
+
+.date-box:hover:not(.locked) {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 9px 20px rgba(0, 0, 0, 0.35);
+
+    z-index: 20;
+}
+
+
+/* =================================
+   GREEN FLAG
+   ================================= */
+
+.green-flag {
+    position: absolute;
+
+    top: -32px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    animation: flagAppear 0.25s ease-out;
+}
+
+
+/* =================================
+   FLAG ANIMATION
+   ================================= */
+
+@keyframes flagAppear {
+
+    0% {
+        transform:
+            translateX(-50%)
+            scale(0);
+        opacity: 0;
+    }
+
+    70% {
+        transform:
+            translateX(-50%)
+            scale(1.2);
+    }
+
+    100% {
+        transform:
+            translateX(-50%)
+            scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* =================================
+   TARGET ACHIEVED
+   ================================= */
+
+.celebration {
+    position: absolute;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+    width: max-content;
+
+    z-index: 50;
+}
+
+
+.target-achieved {
+    font-family: "Rock Salt", cursive;
+
+    font-size: 32px;
 
     color: #2b066a;
 
-    font-family: "Source Code Pro", monospace;
-    font-size: 18px;
-    font-weight: 600;
+    text-shadow:
+        0 3px 0 rgba(255, 255, 255, 0.7);
 
-    box-shadow:
-        0 5px 10px rgba(0, 0, 0, 0.15);
+    animation: targetPop 0.6s ease-out;
+}
+
+
+.party-popper {
+    font-size: 45px;
+
+    animation:
+        popper 0.7s ease-in-out infinite alternate;
+}
+
+
+.party-popper.left {
+    animation-delay: 0.1s;
+}
+
+
+.party-popper.right {
+    animation-delay: 0.25s;
+}
+
+
+/* =================================
+   TARGET ANIMATION
+   ================================= */
+
+@keyframes targetPop {
+
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* =================================
+   PARTY POPPER ANIMATION
+   ================================= */
+
+@keyframes popper {
+
+    0% {
+        transform:
+            rotate(-12deg)
+            scale(0.8);
+    }
+
+    100% {
+        transform:
+            rotate(12deg)
+            scale(1.15);
+    }
+}
+
+
+/* =================================
+   SMALL SCREENS
+   ================================= */
+
+@media (max-width: 600px) {
+
+    .date-grid {
+        height: 470px;
+
+        margin-top: 35px;
+
+        padding: 30px 20px;
+    }
+
+    .snake-track {
+        height: 370px;
+    }
+
+    .date-box {
+        width: 55px;
+        height: 48px;
+
+        font-size: 14px;
+    }
+
+    .date-box:first-child {
+        width: 62px;
+        height: 54px;
+    }
+
+    .green-flag {
+        top: -27px;
+        font-size: 23px;
+    }
+
+    .celebration {
+        bottom: 20px;
+        gap: 12px;
+    }
+
+    .target-achieved {
+        font-size: 22px;
+    }
+
+    .party-popper {
+        font-size: 32px;
+    }
 }

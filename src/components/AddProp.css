@@ -8,12 +8,12 @@
     align-items: center;
     gap: 28px;
 
-    background: rgba(204, 173, 110, 0.91);
-    border-color: grey;
+    background: rgba(252, 171, 233, 0.91);
+    border-color: rgb(199, 124, 124);
     border-width: 5px;
     border-style: solid;
 
-    color: #251a38;
+    color: #4713a0;
 }
 
 .add-streak-icon {

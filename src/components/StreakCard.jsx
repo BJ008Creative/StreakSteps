@@ -7,7 +7,8 @@ function StreakCard(props) {
     function openStreak() {
         navigate("/streak", {
             state: {
-                goal: props.goal
+                goal: props.goal,
+                goalIndex: props.index
             }
         });
     }
@@ -18,11 +19,13 @@ function StreakCard(props) {
             onClick={openStreak}
         >
             <div className="streak-icon">
+                <p>{props.index+1}
+                </p>
             </div>
 
             <h2>{props.goal.name}</h2>
 
-            <p>{props.goal.days} days</p>
+            
 
             <button
                 onClick={(event) => {

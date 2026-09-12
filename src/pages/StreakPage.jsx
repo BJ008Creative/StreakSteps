@@ -1,16 +1,21 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { DateGrid } from "../components/Dategrid";
+import "./StreakPage.css";
 
 function StreakPage() {
     const location = useLocation();
     const navigate = useNavigate();
 
     const goal = location.state?.goal;
+    const goalIndex = location.state?.goalIndex;
 
     if (!goal) {
         return (
             <div className="streak-page">
-                <button onClick={() => navigate("/")}>
+                <button
+                    className="back-button"
+                    onClick={() => navigate("/")}
+                >
                     ← Back
                 </button>
 
@@ -21,15 +26,24 @@ function StreakPage() {
 
     return (
         <div className="streak-page">
-            <button onClick={() => navigate("/")}>
+
+            <button
+                className="back-button"
+                onClick={() => navigate("/")}
+            >
                 ← Back
             </button>
 
-            <h1>{goal.name}</h1>
+            <div className="streak-header">
+                <h1>{goal.name}</h1>
+                <p>{goal.days} days</p>
+            </div>
 
-            <p>{goal.days} days</p>
+            <DateGrid
+                days={goal.days}
+                storageKey={`streak-${goalIndex}`}
+            />
 
-            <DateGrid days={goal.days} />
         </div>
     );
 }
